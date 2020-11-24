@@ -1,0 +1,43 @@
+.div-box {
+    height: 100%;
+    padding: 60% 10%;
+    .title-p {
+        text-align: center;
+        font-size: .18rem;
+    }
+    .ant-form-item {
+        // justify-content: center;
+        .ant-input,
+        .ant-input-affix-wrapper {
+            background-color: transparent;
+        }
+        .ant-input-affix-wrapper {
+            color: white;
+            border: none;
+            border-bottom: 1px solid white;
+        }
+        .ant-input-affix-wrapper-focused {
+            box-shadow: none;
+        }
+        .ant-input-password-icon {
+            color: white;
+        }
+    }
+    .ant-btn-primary {
+        width: 100%;
+        border-radius: .2rem;
+        height: 45px;
+    }
+}
+.div-box::before {
+    content: '';
+    filter: opacity(80%);
+    background: url(../../assets/img/1.jpg) center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /*-1 可以当背景*/
+}
