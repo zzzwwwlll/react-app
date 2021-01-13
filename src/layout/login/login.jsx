@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import './login.scss'
 import { Form, Input, Button } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { loginApi } from '../../api/api'
 
 
 class Login extends Component {
@@ -15,7 +16,12 @@ class Login extends Component {
   onFinish(values) {
     console.log('Success:', values)
     if (values) {
-      this.props.history.push('/home')
+      loginApi(values).then((res) => {
+        console.log(res)
+        if (res) {
+          this.props.history.push('/home')
+        }
+      })
     }
   }
   onFinishFailed(errorInfo) {
@@ -34,7 +40,7 @@ class Login extends Component {
           onFinishFailed={this.onFinishFailed}
         >
           <Form.Item
-            name="username"
+            name="mobile"
             rules={[
               {
                 required: true,

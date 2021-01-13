@@ -1,6 +1,7 @@
 .register-div-box {
     height: 100%;
     padding: 40% 10%;
+    // text-align: end;
     .ant-form-item {
         .ant-input,
         .ant-input-affix-wrapper {
@@ -29,10 +30,19 @@
             border-radius: 6px;
         }
     }
+    .ant-form-item-explain.ant-form-item-explain-error {
+    }
+    .login-link {
+        color: white;
+        margin-bottom: .2rem;
+        display: inline-block;
+        display: flex;
+        justify-content: flex-end;
+    }
 }
 .register-div-box::before {
     content: '';
-    filter: opacity(60%);
+    filter: opacity(80%);
     background: url(../../assets/img/1.jpg) center no-repeat;
     background-size: cover;
     width: 100%;

@@ -1,5 +1,8 @@
 import axios from 'axios'
-import { Modal } from "antd";
+// import qs from 'qs'
+import {
+    Modal
+} from "antd";
 
 
 
@@ -9,7 +12,9 @@ let isRefreshing = false;
 let requestQueue = [];
 // token 过期时的请求队列
 
-let instance = axios.create()
+let instance = axios.create({
+    // baseURL: 'http://10.250.67.92:5000'
+})
 
 //token获取失败处理
 const LoginAgain = () => {
@@ -54,7 +59,9 @@ instance.interceptors.response.use(
         if (response.data.status === 401) {
             // token失效
             isRefreshing = true;
-            const { config } = response;
+            const {
+                config
+            } = response;
             getToken();
             if (isRefreshing) {
                 return new Promise((resolve) => {
@@ -76,18 +83,9 @@ instance.interceptors.request.use((config) => {
     // 可以记录请求开始的时间 响应里面上报 接口耗时
     config.REQUEST_ID = Date.now();
     // 请求REQUEST_ID url timestamp 上报
-    try {
-        // 设置请求头的token参数
-        config.headers.token = window.localStorage.getItem("token") || "";
-    } catch (error) {
-        console.log(error.message);
-    }
-
+    // 设置请求头的token参数
+    config.headers.token = window.localStorage.getItem("token") || "";
     return config;
 });
 
 export default instance;
-
-
-
-

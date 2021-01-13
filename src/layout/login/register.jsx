@@ -3,6 +3,7 @@ import './register.scss'
 import {
     Form, Input, Button, Row, Col
 } from 'antd'
+import { Link } from 'react-router-dom'
 
 class Register extends Component {
     render() {
@@ -27,7 +28,7 @@ class Register extends Component {
                         <Row gutter={8}>
                             <Col span={14}>
                                 <Form.Item
-                                    name="captcha"
+                                    name="tcha"
                                     noStyle
                                     rules={[{ required: true, message: '请输入图片验证码' }]}
                                 >
@@ -67,7 +68,7 @@ class Register extends Component {
                         <Input.Password placeholder="请输入密码" />
                     </Form.Item>
                     <Form.Item
-                        name="password"
+                        name="pass"
                         rules={[
                             {
                                 required: true,
@@ -77,7 +78,7 @@ class Register extends Component {
                     >
                         <Input.Password placeholder="请确认密码" />
                     </Form.Item>
-
+                    <Link to="/" className="login-link">→去登录</Link>
                     <Form.Item className="form-button">
                         <Button type="primary" htmlType="submit">立即注册</Button>
                     </Form.Item>
